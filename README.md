@@ -1,3 +1,13 @@
+# Portofolio Next.js
+
+Struktur folder:
+
+- `pages/` — Halaman utama (index, about, projects, contact)
+- `components/` — Komponen UI reusable (Navbar, Footer, ProjectCard)
+- `layouts/` — Layout utama (MainLayout)
+- `styles/` — CSS modular per halaman/komponen
+- `public/images/` — Gambar statis (foto profil, proyek, dsb)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
 ## Getting Started
