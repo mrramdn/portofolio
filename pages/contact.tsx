@@ -1,27 +1,36 @@
-import { Container, Grid, Text, Title, Card, Stack, TextInput, Textarea, Button, useComputedColorScheme } from '@mantine/core';
+import { Container, Grid, Text, Title, Card, Stack, TextInput, Textarea, Button, useComputedColorScheme, Paper, Group, Box, Badge } from '@mantine/core';
 import { motion } from 'framer-motion';
 import MainLayout from '../layouts/MainLayout';
+import { useState } from 'react';
 
 const contactInfo = [
   { 
     title: 'Email', 
     value: 'rifki@example.com',
-    description: 'Send me an email anytime'
+    description: 'Send me an email anytime',
+    link: 'mailto:rifki@example.com',
+    icon: '✉️'
   },
   { 
     title: 'LinkedIn', 
     value: 'linkedin.com/in/rifki',
-    description: 'Connect with me professionally'
+    description: 'Connect with me professionally',
+    link: 'https://linkedin.com/in/rifki',
+    icon: '💼'
   },
   { 
     title: 'GitHub', 
     value: 'github.com/rifki',
-    description: 'Check out my projects'
+    description: 'Check out my projects',
+    link: 'https://github.com/rifki',
+    icon: '🐙'
   },
 ];
 
 export default function Contact() {
   const computedColorScheme = useComputedColorScheme('light');
+  const [copied, setCopied] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   return (
     <MainLayout>
@@ -33,32 +42,13 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           style={{ marginBottom: 80 }}
         >
-          <Title 
-            order={1} 
-            size="3rem" 
-            mb={30}
-            style={{ 
-              textAlign: 'center',
-              color: 'var(--text-primary)'
-            }}
-          >
-            Get In Touch
+          <Title order={1} size="3rem" mb={30} style={{ textAlign: 'center', color: 'var(--text-primary)', fontWeight: 800 }}>
+            Let's Connect
           </Title>
-          <Text 
-            size="lg" 
-            style={{ 
-              textAlign: 'center',
-              maxWidth: 600,
-              margin: '0 auto',
-              color: 'var(--text-secondary)',
-              lineHeight: 1.6
-            }}
-          >
-            I'm always interested in hearing about new opportunities and exciting projects. 
-            Feel free to reach out if you'd like to collaborate or just want to say hello!
+          <Text size="lg" style={{ textAlign: 'center', maxWidth: 600, margin: '0 auto', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+            I'm always open to new opportunities, collaborations, or just a friendly chat. Drop me a message and let's create something amazing together!
           </Text>
         </motion.div>
-
         <Grid gutter={60}>
           {/* Contact Form */}
           <Grid.Col span={{ base: 12, lg: 7 }}>
@@ -68,23 +58,9 @@ export default function Contact() {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Card 
-                shadow="sm" 
-                padding="xl" 
-                radius="md"
-                style={{ 
-                  background: 'var(--card-bg)',
-                  border: `1px solid var(--card-border)`,
-                  transition: 'background-color 0.3s ease, border-color 0.3s ease'
-                }}
-              >
-                <Title 
-                  order={2} 
-                  size="2rem" 
-                  mb={30}
-                  style={{ color: 'var(--text-primary)' }}
-                >
-                  Send Message
+              <Paper shadow="md" p="xl" radius="md" style={{ background: 'var(--card-bg)', border: `1px solid var(--card-border)` }}>
+                <Title order={2} size="2rem" mb={30} style={{ color: 'var(--text-primary)', fontWeight: 700 }}>
+                  Send a Message
                 </Title>
                 <Stack gap={20}>
                   <Grid>
@@ -93,15 +69,7 @@ export default function Contact() {
                         label="Name"
                         placeholder="Your name"
                         required
-                        styles={{
-                          label: { color: 'var(--text-secondary)' },
-                          input: { 
-                            background: 'var(--card-bg)',
-                            border: `1px solid var(--card-border)`,
-                            color: 'var(--text-primary)',
-                            transition: 'background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease'
-                          }
-                        }}
+                        styles={{ label: { color: 'var(--text-secondary)' }, input: { background: 'var(--card-bg)', border: `1px solid var(--card-border)`, color: 'var(--text-primary)' } }}
                       />
                     </Grid.Col>
                     <Grid.Col span={{ base: 12, sm: 6 }}>
@@ -110,15 +78,7 @@ export default function Contact() {
                         placeholder="your@email.com"
                         required
                         type="email"
-                        styles={{
-                          label: { color: 'var(--text-secondary)' },
-                          input: { 
-                            background: 'var(--card-bg)',
-                            border: `1px solid var(--card-border)`,
-                            color: 'var(--text-primary)',
-                            transition: 'background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease'
-                          }
-                        }}
+                        styles={{ label: { color: 'var(--text-secondary)' }, input: { background: 'var(--card-bg)', border: `1px solid var(--card-border)`, color: 'var(--text-primary)' } }}
                       />
                     </Grid.Col>
                   </Grid>
@@ -126,43 +86,35 @@ export default function Contact() {
                     label="Subject"
                     placeholder="What's this about?"
                     required
-                    styles={{
-                      label: { color: 'var(--text-secondary)' },
-                      input: { 
-                        background: 'var(--card-bg)',
-                        border: `1px solid var(--card-border)`,
-                        color: 'var(--text-primary)',
-                        transition: 'background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease'
-                      }
-                    }}
+                    styles={{ label: { color: 'var(--text-secondary)' }, input: { background: 'var(--card-bg)', border: `1px solid var(--card-border)`, color: 'var(--text-primary)' } }}
                   />
                   <Textarea
                     label="Message"
                     placeholder="Your message..."
                     required
                     minRows={6}
-                    styles={{
-                      label: { color: 'var(--text-secondary)' },
-                      input: { 
-                        background: 'var(--card-bg)',
-                        border: `1px solid var(--card-border)`,
-                        color: 'var(--text-primary)',
-                        transition: 'background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease'
-                      }
-                    }}
+                    styles={{ label: { color: 'var(--text-secondary)' }, input: { background: 'var(--card-bg)', border: `1px solid var(--card-border)`, color: 'var(--text-primary)' } }}
                   />
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     color="blue"
                     style={{ marginTop: 10 }}
+                    onClick={() => {
+                      setSubmitted(true);
+                      setTimeout(() => setSubmitted(false), 2000);
+                    }}
                   >
                     Send Message
                   </Button>
                 </Stack>
-              </Card>
+                {submitted && (
+                  <Text size="sm" color="green" mt={8} style={{ textAlign: 'center' }}>
+                    Thank you! Your message has been sent (dummy alert).
+                  </Text>
+                )}
+              </Paper>
             </motion.div>
           </Grid.Col>
-
           {/* Contact Info */}
           <Grid.Col span={{ base: 12, lg: 5 }}>
             <motion.div
@@ -173,39 +125,33 @@ export default function Contact() {
             >
               <Stack gap={20}>
                 {contactInfo.map((info, index) => (
-                  <Card 
+                  <motion.div
                     key={index}
-                    shadow="sm" 
-                    padding="lg" 
-                    radius="md"
-                    style={{ 
-                      background: 'var(--card-bg)',
-                      border: `1px solid var(--card-border)`,
-                      transition: 'background-color 0.3s ease, border-color 0.3s ease'
-                    }}
+                    initial={{ opacity: 0, x: 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05, boxShadow: '0 8px 32px rgba(25, 118, 210, 0.18)' }}
                   >
-                    <Stack gap={8}>
-                      <Text 
-                        size="lg" 
-                        fw={600}
-                        style={{ color: 'var(--text-primary)' }}
-                      >
-                        {info.title}
-                      </Text>
-                      <Text 
-                        size="md"
-                        style={{ color: '#1976d2', fontWeight: 500 }}
-                      >
-                        {info.value}
-                      </Text>
-                      <Text 
-                        size="sm"
-                        style={{ color: 'var(--text-secondary)' }}
-                      >
-                        {info.description}
-                      </Text>
-                    </Stack>
-                  </Card>
+                    <Paper shadow="sm" p="lg" radius="md" style={{ background: 'var(--card-bg)', border: `1px solid var(--card-border)`, display: 'flex', alignItems: 'center' }}>
+                      <Box style={{ fontSize: 32, marginRight: 16 }}>{info.icon}</Box>
+                      <Stack gap={4}>
+                        <Group gap={8}>
+                          <Text size="lg" fw={700} style={{ color: '#1976d2' }}>{info.title}</Text>
+                          <Badge size="sm" color="blue" variant="light">{info.title}</Badge>
+                          {info.title === 'Email' && (
+                            <Button size="xs" color="gray" variant="outline" onClick={() => {navigator.clipboard.writeText(info.value); setCopied(true); setTimeout(() => setCopied(false), 1500);}}>
+                              {copied ? 'Copied!' : 'Copy'}
+                            </Button>
+                          )}
+                        </Group>
+                        <Text size="md" style={{ color: 'var(--text-primary)', fontWeight: 500 }}>
+                          <a href={info.link} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>{info.value}</a>
+                        </Text>
+                        <Text size="sm" style={{ color: 'var(--text-secondary)' }}>{info.description}</Text>
+                      </Stack>
+                    </Paper>
+                  </motion.div>
                 ))}
               </Stack>
             </motion.div>

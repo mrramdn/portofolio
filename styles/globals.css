@@ -31,32 +31,45 @@ a {
 
 /* Theme CSS Variables */
 :root {
-  --mantine-color-scheme: light;
-  --bg-primary: #f8f9fa;
-  --bg-secondary: #fff;
-  --text-primary: #1a1a1a;
-  --text-secondary: #666;
-  --border-color: #e0e0e0;
-  --card-bg: #fff;
-  --card-border: #e0e0e0;
+  --font-main: 'Inter', 'Nunito', sans-serif;
+  --font-size-base: 17px;
+  --font-size-lg: 21px;
+  --font-size-sm: 15px;
+  --radius: 12px;
+  --transition: 0.3s cubic-bezier(.4,0,.2,1);
+  --primary: #1976d2;
+  --accent: #00bcd4;
+  --success: #43a047;
+  --danger: #e53935;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #1a1b1e;
+  --text-secondary: #6c757d;
+  --card-bg: #ffffff;
+  --card-border: #e9ecef;
+  --shadow: 0 8px 32px rgba(25, 118, 210, 0.08);
 }
 
-[data-mantine-color-scheme="dark"] {
-  --mantine-color-scheme: dark;
-  --bg-primary: #1A1B1E;
-  --bg-secondary: #25262B;
-  --text-primary: #fff;
-  --text-secondary: #C1C2C5;
-  --border-color: #373A40;
-  --card-bg: #25262B;
-  --card-border: #373A40;
+[data-mantine-color-scheme="dark"]:root {
+  --bg-primary: #18191a;
+  --bg-secondary: #23272f;
+  --text-primary: #f4f4f4;
+  --text-secondary: #b0b3b8;
+  --card-bg: #23272f;
+  --card-border: #373a40;
+  --shadow: 0 8px 32px rgba(25, 118, 210, 0.15);
 }
 
 /* Apply theme colors */
 body {
-  background-color: var(--bg-primary);
+  font-family: var(--font-main);
+  font-size: var(--font-size-base);
+  background: var(--bg-primary);
   color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  transition: background var(--transition), color var(--transition);
 }
 
 /* Smooth transitions for theme changes */
@@ -107,4 +120,31 @@ textarea:focus {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-main);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--card-border);
+  border-radius: 8px;
 }
