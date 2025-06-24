@@ -1,8 +1,98 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Theme CSS Variables */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --mantine-color-scheme: light;
+  --bg-primary: #f8f9fa;
+  --bg-secondary: #fff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666;
+  --border-color: #e0e0e0;
+  --card-bg: #fff;
+  --card-border: #e0e0e0;
+}
+
+[data-mantine-color-scheme="dark"] {
+  --mantine-color-scheme: dark;
+  --bg-primary: #1A1B1E;
+  --bg-secondary: #25262B;
+  --text-primary: #fff;
+  --text-secondary: #C1C2C5;
+  --border-color: #373A40;
+  --card-bg: #25262B;
+  --card-border: #373A40;
+}
+
+/* Apply theme colors */
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Hover effects */
+.nav-link:hover {
+  color: #1976d2 !important;
+}
+
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(25, 118, 210, 0.15);
+}
+
+[data-mantine-color-scheme="dark"] .card-hover:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Input styles */
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-secondary) !important;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #1976d2 !important;
+  box-shadow: 0 0 0 1px #1976d2 !important;
+  outline: none !important;
 }
 
 @theme inline {
@@ -17,10 +107,4 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }

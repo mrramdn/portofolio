@@ -1,34 +1,79 @@
-import { Card, Text, Button, Group, Image } from '@mantine/core';
+import { Card, Text, Badge, Group, Stack, useComputedColorScheme } from '@mantine/core';
 import { motion } from 'framer-motion';
 
-const MotionCard = motion(Card);
-
-type ProjectCardProps = {
+interface ProjectCardProps {
   title: string;
   description: string;
+  technologies: string[];
   image: string;
-  demo: string;
-  source: string;
-};
+  link: string;
+}
 
-export default function ProjectCard({ title, description, image, demo, source }: ProjectCardProps) {
+export default function ProjectCard({ title, description, technologies, image, link }: ProjectCardProps) {
+  const computedColorScheme = useComputedColorScheme('light');
+
   return (
-    <MotionCard
-      shadow="md"
-      padding="lg"
-      radius="md"
-      withBorder
-      whileHover={{ scale: 1.04, boxShadow: '0 4px 16px #0002' }}
-      transition={{ type: 'spring', stiffness: 300 }}
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+    <motion.div
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.2 }}
     >
-      <Image src={image} alt={title} height={160} radius="md" mb={12} withPlaceholder />
-      <Text fw={700} size="lg" mt={8} mb={4} ta="center">{title}</Text>
-      <Text c="dimmed" size="sm" ta="center">{description}</Text>
-      <Group mt={16} gap={8}>
-        <Button component="a" href={demo} target="_blank" rel="noopener noreferrer" color="blue" size="xs">Demo</Button>
-        <Button component="a" href={source} target="_blank" rel="noopener noreferrer" variant="outline" color="blue" size="xs">Source</Button>
-      </Group>
-    </MotionCard>
+      <Card 
+        shadow="sm" 
+        padding="lg" 
+        radius="md"
+        className="card-hover"
+        style={{ 
+          height: '100%',
+          background: 'var(--card-bg)',
+          border: `1px solid var(--card-border)`,
+          cursor: 'pointer'
+        }}
+        onClick={() => window.open(link, '_blank')}
+      >
+        <Stack gap={16}>
+          <div 
+            style={{ 
+              fontSize: '3rem', 
+              textAlign: 'center',
+              marginBottom: 8
+            }}
+          >
+            {image}
+          </div>
+          
+          <Text 
+            size="lg" 
+            fw={600}
+            style={{ color: 'var(--text-primary)' }}
+          >
+            {title}
+          </Text>
+          
+          <Text 
+            size="sm"
+            style={{ 
+              color: 'var(--text-secondary)',
+              lineHeight: 1.5,
+              flex: 1
+            }}
+          >
+            {description}
+          </Text>
+          
+          <Group gap={8} wrap="wrap">
+            {technologies.map((tech, index) => (
+              <Badge 
+                key={index} 
+                size="sm" 
+                variant="light" 
+                color="blue"
+              >
+                {tech}
+              </Badge>
+            ))}
+          </Group>
+        </Stack>
+      </Card>
+    </motion.div>
   );
 } 

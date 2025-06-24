@@ -1,29 +1,178 @@
+import { Container, Grid, Text, Title, Card, Stack, Badge, useComputedColorScheme } from '@mantine/core';
+import { motion } from 'framer-motion';
 import MainLayout from '../layouts/MainLayout';
-import { Title, Text, List, Stack } from '@mantine/core';
+
+const skills = [
+  { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'HTML/CSS', 'Tailwind CSS'] },
+  { category: 'Backend', items: ['Node.js', 'Express', 'Python', 'PostgreSQL', 'MongoDB'] },
+  { category: 'Tools', items: ['Git', 'Docker', 'AWS', 'Figma', 'Postman'] },
+];
+
+const education = [
+  { degree: 'Bachelor of Computer Science', school: 'University of Technology', year: '2020 - 2024' },
+  { degree: 'Web Development Bootcamp', school: 'Coding Academy', year: '2019' },
+];
 
 export default function About() {
+  const computedColorScheme = useComputedColorScheme('light');
+
   return (
     <MainLayout>
-      <Stack gap={24} maw={600} mx="auto" py={32}>
-        <Title order={1} c="blue.7">Tentang Saya</Title>
-        <Text c="gray.7">
-          Halo! Saya <b>Rifki</b>, seorang Frontend Developer yang berdomisili di Bandung. Saya memiliki ketertarikan pada desain antarmuka, animasi web, dan pengembangan aplikasi berbasis React/Next.js.
-        </Text>
-        <div>
-          <Title order={3} c="blue.6" mb={8} style={{ fontSize: 20 }}>Info Pribadi</Title>
-          <List spacing="xs" size="md" c="gray.8">
-            <List.Item><b>Email:</b> rifki@email.com</List.Item>
-            <List.Item><b>Domisili:</b> Bandung, Indonesia</List.Item>
-            <List.Item><b>Keahlian:</b> React, Next.js, TypeScript, Framer Motion, UI/UX</List.Item>
-          </List>
-        </div>
-        <div>
-          <Title order={3} c="blue.6" mb={8} style={{ fontSize: 20 }}>Pendidikan</Title>
-          <List spacing="xs" size="md" c="gray.8">
-            <List.Item>Bina Nusantara University - S1 Informatika (2021 - Sekarang)</List.Item>
-          </List>
-        </div>
-      </Stack>
+      <Container size="lg" py={80}>
+        {/* Hero Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          style={{ marginBottom: 80 }}
+        >
+          <Title 
+            order={1} 
+            size="3rem" 
+            mb={30}
+            style={{ 
+              textAlign: 'center',
+              color: 'var(--text-primary)'
+            }}
+          >
+            About Me
+          </Title>
+          <Text 
+            size="lg" 
+            style={{ 
+              textAlign: 'center',
+              maxWidth: 800,
+              margin: '0 auto',
+              color: 'var(--text-secondary)',
+              lineHeight: 1.7
+            }}
+          >
+            I'm a passionate Full Stack Developer with 4+ years of experience creating modern web applications. 
+            I love turning complex problems into simple, beautiful, and intuitive solutions. 
+            When I'm not coding, you can find me exploring new technologies, contributing to open source, 
+            or sharing knowledge with the developer community.
+          </Text>
+        </motion.div>
+
+        {/* Skills Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          style={{ marginBottom: 80 }}
+        >
+          <Title 
+            order={2} 
+            size="2.5rem" 
+            mb={40}
+            style={{ 
+              textAlign: 'center',
+              color: 'var(--text-primary)'
+            }}
+          >
+            Skills & Technologies
+          </Title>
+          <Grid gutter={30}>
+            {skills.map((skillGroup, index) => (
+              <Grid.Col key={index} span={{ base: 12, md: 4 }}>
+                <Card 
+                  shadow="sm" 
+                  padding="lg" 
+                  radius="md"
+                  style={{ 
+                    height: '100%',
+                    background: 'var(--card-bg)',
+                    border: `1px solid var(--card-border)`,
+                    transition: 'background-color 0.3s ease, border-color 0.3s ease'
+                  }}
+                >
+                  <Stack gap={16}>
+                    <Text 
+                      size="lg" 
+                      fw={600}
+                      style={{ color: 'var(--text-primary)' }}
+                    >
+                      {skillGroup.category}
+                    </Text>
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                      {skillGroup.items.map((skill, skillIndex) => (
+                        <Badge 
+                          key={skillIndex} 
+                          size="sm" 
+                          variant="light" 
+                          color="blue"
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </div>
+                  </Stack>
+                </Card>
+              </Grid.Col>
+            ))}
+          </Grid>
+        </motion.div>
+
+        {/* Education Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <Title 
+            order={2} 
+            size="2.5rem" 
+            mb={40}
+            style={{ 
+              textAlign: 'center',
+              color: 'var(--text-primary)'
+            }}
+          >
+            Education
+          </Title>
+          <Grid gutter={30}>
+            {education.map((edu, index) => (
+              <Grid.Col key={index} span={{ base: 12, md: 6 }}>
+                <Card 
+                  shadow="sm" 
+                  padding="lg" 
+                  radius="md"
+                  style={{ 
+                    height: '100%',
+                    background: 'var(--card-bg)',
+                    border: `1px solid var(--card-border)`,
+                    transition: 'background-color 0.3s ease, border-color 0.3s ease'
+                  }}
+                >
+                  <Stack gap={12}>
+                    <Text 
+                      size="lg" 
+                      fw={600}
+                      style={{ color: 'var(--text-primary)' }}
+                    >
+                      {edu.degree}
+                    </Text>
+                    <Text 
+                      size="md"
+                      style={{ color: '#1976d2', fontWeight: 500 }}
+                    >
+                      {edu.school}
+                    </Text>
+                    <Text 
+                      size="sm"
+                      style={{ color: 'var(--text-secondary)' }}
+                    >
+                      {edu.year}
+                    </Text>
+                  </Stack>
+                </Card>
+              </Grid.Col>
+            ))}
+          </Grid>
+        </motion.div>
+      </Container>
     </MainLayout>
   );
 } 

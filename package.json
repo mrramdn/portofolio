@@ -1,6 +1,6 @@
 {
   "name": "portofolio",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -13,6 +13,7 @@
     "@mantine/hooks": "^8.1.1",
     "@mantine/next": "^6.0.22",
     "@mantine/notifications": "^8.1.1",
+    "@tabler/icons-react": "^3.34.0",
     "framer-motion": "^12.19.1",
     "next": "15.3.4",
     "react": "^19.0.0",
