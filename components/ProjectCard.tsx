@@ -1,15 +1,21 @@
 import { Card, Text, Badge, Group, Stack, useComputedColorScheme } from '@mantine/core';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
-interface ProjectCardProps {
+type Project = {
   title: string;
   description: string;
   technologies: string[];
   image: string;
   link: string;
-}
+  status: string;
+  details: string;
+};
 
-export default function ProjectCard({ title, description, technologies, image, link }: ProjectCardProps) {
+const [selected, setSelected] = useState<Project | null>(null);
+
+
+export default function ProjectCard({ title, description, technologies, image, link, details }: Project) {
   const computedColorScheme = useComputedColorScheme('light');
 
   return (

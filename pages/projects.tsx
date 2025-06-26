@@ -1,7 +1,20 @@
 import { Container, Grid, Title, useComputedColorScheme, Card, Stack, Badge, Text, Group, Paper, Box, Modal, Button } from '@mantine/core';
 import { motion } from 'framer-motion';
 import MainLayout from '../layouts/MainLayout';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+
+type Project = {
+  title: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  link: string;
+  status: string;
+  details: string;
+};
+
+
 
 const projects = [
   {
@@ -64,30 +77,17 @@ export default function Projects() {
   const computedColorScheme = useComputedColorScheme('light');
   const allTechs = Array.from(new Set(projects.flatMap(p => p.technologies)));
   const [filter, setFilter] = useState('All');
-  const filteredProjects = filter === 'All' ? projects : projects.filter(p => p.technologies.includes(filter));
+  const [filteredProjects, setFilteredProjects] = useState(projects);
   const [opened, setOpened] = useState(false);
-  const [selected, setSelected] = useState(null);
-  const [showConfetti, setShowConfetti] = useState(false);
+  const [selected, setSelected] = useState<Project | null>(null);
 
-  // Confetti effect (simple emoji burst)
-  const Confetti = () => (
-    <div style={{
-      position: 'fixed',
-      top: 0,
-      left: 0,
-      width: '100vw',
-      height: '100vh',
-      pointerEvents: 'none',
-      zIndex: 9999,
-      display: showConfetti ? 'block' : 'none',
-      fontSize: 48,
-      textAlign: 'center',
-      animation: 'fadeOut 1.2s forwards',
-    }}>
-      🎉✨🚀🎊
-      <style>{`@keyframes fadeOut { to { opacity: 0; } }`}</style>
-    </div>
-  );
+  useEffect(() => {
+    if (filter === 'All') {
+      setFilteredProjects(projects);
+    } else {
+      setFilteredProjects(projects.filter(p => p.technologies.includes(filter)));
+    }
+  }, [filter]);
 
   return (
     <MainLayout>
@@ -136,8 +136,6 @@ export default function Projects() {
                 onClick={() => {
                   setSelected(project);
                   setOpened(true);
-                  setShowConfetti(true);
-                  setTimeout(() => setShowConfetti(false), 1200);
                 }}
               >
                 <Paper
@@ -192,7 +190,6 @@ export default function Projects() {
             </Button>
           </Stack>
         </Modal>
-        <Confetti />
       </Container>
     </MainLayout>
   );

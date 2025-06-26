@@ -17,8 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <MantineProvider 
-      withGlobalStyles 
-      withNormalizeCSS 
+      defaultColorScheme="light"
       theme={{
         primaryColor: 'blue',
         fontFamily: 'Inter, Arial, sans-serif',

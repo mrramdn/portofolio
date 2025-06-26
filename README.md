@@ -1,4 +1,4 @@
-# Portofolio Next.js
+# portfolio Next.js
 
 Struktur folder:
 
