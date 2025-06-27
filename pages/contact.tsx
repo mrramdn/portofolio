@@ -8,12 +8,12 @@ const contactInfo = [
     title: 'Email', 
     value: 'rifki@example.com',
     description: 'Send me an email anytime',
-    link: 'mailto:rifki@example.com',
+    link: 'mailto:rifki.ramdani.work@gmail.com',
     icon: '✉️'
   },
   { 
     title: 'LinkedIn', 
-    value: 'linkedin.com/in/rifki',
+    value: 'linkedin.com/in/mrramdn',
     description: 'Connect with me professionally',
     link: 'https://linkedin.com/in/rifki',
     icon: '💼'
@@ -22,7 +22,7 @@ const contactInfo = [
     title: 'GitHub', 
     value: 'github.com/rifki',
     description: 'Check out my projects',
-    link: 'https://github.com/rifki',
+    link: 'https://github.com/mrramdn',
     icon: '🐙'
   },
 ];

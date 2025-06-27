@@ -3,48 +3,53 @@ import { motion } from 'framer-motion';
 import MainLayout from '../layouts/MainLayout';
 
 const awards = [
-  { title: 'Best Developer 2023', organization: 'Tech Awards Indonesia', year: '2023', description: 'Recognized for outstanding contributions to web development and innovative solutions.' },
-  { title: 'Innovation Award', organization: 'Startup Competition Jakarta', year: '2022', description: 'Awarded for developing cutting-edge applications that solve real-world problems.' },
-  { title: 'Excellence in Coding', organization: 'CodeFest Southeast Asia', year: '2021', description: 'Honored for exceptional coding skills and best practices implementation.' },
+  { title: '1st Winner UI/UX Design Competition National', organization: 'CCI Summit 2024 (Telkom University)', year: '2024', description: 'Recognized for delivering an intuitive and visually engaging design that balanced user experience with functionality.' },
+  { title: 'Finalist UI/UX Design Competition National', organization: 'The Ace 2024 (Diponegoro University)', year: '2024', description: 'Competed with teams from various institutions to create innovative solutions utilizing AI to enhance user experiences.' },
+  { title: 'Student Appreciation Recipient 2025', organization: 'Bina Nusantara University', year: '2025', description: 'Received a certificate of appreciation from BINUS University for representing the university in a national-level UI/UX design competition organized by Telkom University. ' },
 ];
 
 const experience = [
-  { role: 'Senior Frontend Developer', company: 'TechCorp Indonesia', duration: '2022 - Present', description: 'Leading frontend development team, implementing modern React patterns and optimizing performance.' },
-  { role: 'Full Stack Developer', company: 'StartupXYZ', duration: '2020 - 2022', description: 'Built scalable web applications using modern technologies and cloud infrastructure.' },
-  { role: 'Junior Developer', company: 'WebSolutions', duration: '2018 - 2020', description: 'Started career with focus on responsive design and user experience optimization.' },
+  { role: 'Back-End Developer Intern', company: 'WIT. ID', duration: '2024 January - 2024 May', description: 'Handled end-to-end backend development, including API design, database structuring, and business logic implementation.' },
+  { role: 'Team Promotion Intern', company: 'Bina Nusantara Group', duration: '2024 June - 2024 July', description: 'Supported event operations during expos and campus activations, ensuring smooth booth setup and visitor flow. Contributed to lead generation efforts by gathering audience feedback and promoting key offerings.' },
 ];
 
 const timeline = [
   {
-    year: '2023',
-    title: 'Enterprise Project Launch',
-    description: 'Successfully launched 15+ enterprise-grade web applications, driving digital transformation for clients.',
-    impact: 'Boosted client revenue by 30% through innovative solutions.',
+    year: '2024 September',
+    title: 'First National Competition',
+    description: 'Achieved first place among 60 teams in my debut national UI/UX competition, showcasing innovative design and teamwork.',
+    impact: '1st Winner, UI/UX Design Competition — CCI Summit 2024 (Telkom University)',
   },
   {
-    year: '2022',
-    title: 'Team Leadership',
-    description: 'Led a team of 8 developers, fostering a culture of collaboration and continuous learning.',
-    impact: 'Reduced project delivery time by 40% and improved code quality.',
+    year: '2024 September',
+    title: 'Second National Competition',
+    description: 'Led my team to the finals, competing against top talents from across the country and gaining valuable experience in high-pressure environments.',
+    impact: 'Finalist, UI/UX Design Competition — The Ace 2024 (Diponegoro University)',
   },
   {
-    year: '2021',
-    title: 'React & Next.js Mastery',
-    description: 'Achieved expert-level proficiency in React and Next.js, building high-performance, scalable apps.',
-    impact: 'Enhanced user experience and SEO for multiple products.',
+    year: '2024 October',
+    title: 'Third National Competition',
+    description: 'Gained new insights and skills despite being eliminated in the first round, further fueling my passion for UI/UX design.',
+    impact: 'Participant, UI/UX Design Competition 4C (Brawijaya University)',
   },
   {
-    year: '2020',
-    title: 'Freelance Milestone',
-    description: 'Started freelance journey, delivering tailored solutions for diverse clients.',
-    impact: 'Built strong client relationships and a solid portfolio.',
+    year: '2025 January',
+    title: 'Fourth National Competition',
+    description: 'Faced tough competition and learned from early elimination in the first round, strengthening my resolve to improve.',
+    impact: 'Participant, UI/UX Design Competition Arkavidia (Institut Teknologi Bandung)',
   },
+  {
+    year: '2025 March',
+    title: 'Fifth National Competition',
+    description: 'Advanced to the second round, where my team was eliminated, but the experience enhanced my problem-solving and collaboration skills.',
+    impact: 'Participant, UI/UX Design Competition Find IT (Universitas Gadjah Mada)',
+  }
 ];
 
 const skills = [
-  { category: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Mantine UI', 'Framer Motion'] },
-  { category: 'Backend', items: ['Node.js', 'Express', 'Python', 'PostgreSQL', 'MongoDB'] },
-  { category: 'Tools', items: ['Git', 'Docker', 'AWS', 'Figma', 'Postman'] },
+  { category: 'Frontend', items: ['React', 'Next.js', 'Tailwind'] },
+  { category: 'Backend', items: ['Laravel', 'MySQL', 'PostgreSQL', 'MongoDB'] },
+  { category: 'Tools', items: ['Git', 'Vercel', 'Figma', 'Postman'] },
 ];
 
 export default function Home() {
@@ -62,16 +67,16 @@ export default function Home() {
               transition={{ duration: 0.8 }}
             >
               <Title order={1} size="3.5rem" mb={20} style={{ color: 'var(--text-primary)', fontWeight: 800, fontFamily: 'Inter, Nunito, sans-serif' }}>
-                Hi, I'm <span style={{ color: '#1976d2' }}>Rifki</span>
+                Hi, I'm <span style={{ color: '#1976d2' }}>Rifki Ramdani</span>
               </Title>
               <Text size="xl" mb={30} style={{ color: 'var(--text-secondary)', lineHeight: 1.6, fontFamily: 'Nunito, Inter, sans-serif' }}>
                 I'm a passionate Full Stack Developer specializing in building impactful, scalable, and user-centric digital products. My mission is to bridge business goals with seamless user experiences through modern web technology and design thinking.
               </Text>
               <Group gap={16}>
+                <Badge size="lg" variant="filled" color="blue">Laravel</Badge>
                 <Badge size="lg" variant="filled" color="blue">React</Badge>
-                <Badge size="lg" variant="filled" color="blue">Next.js</Badge>
-                <Badge size="lg" variant="filled" color="blue">TypeScript</Badge>
-                <Badge size="lg" variant="filled" color="blue">Mantine UI</Badge>
+                <Badge size="lg" variant="filled" color="blue">Next.JS</Badge>
+                <Badge size="lg" variant="filled" color="blue">Tailwind</Badge>
               </Group>
             </motion.div>
           </Grid.Col>
@@ -195,7 +200,7 @@ export default function Home() {
           <Title order={2} size="2.5rem" mb={40} style={{ textAlign: 'center', color: 'var(--text-primary)', fontWeight: 700 }}>
             Professional Experience
           </Title>
-          <Grid gutter={30}>
+          <Grid gutter={30} justify="center">
             {experience.map((exp, index) => (
               <Grid.Col key={index} span={{ base: 12, md: 4 }}>
                 <Card 

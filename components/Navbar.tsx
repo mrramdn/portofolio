@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 const links = [
-  { label: 'Beranda', link: '/' },
-  { label: 'Tentang', link: '/about' },
-  { label: 'Proyek', link: '/projects' },
-  { label: 'Kontak', link: '/contact' },
+  { label: 'Home', link: '/' },
+  { label: 'About', link: '/about' },
+  { label: 'Project', link: '/projects' },
+  { label: 'Contact', link: '/contact' },
 ];
 
 // Custom SVG Icons
@@ -88,7 +88,7 @@ export default function Navbar() {
             transition: 'color 0.3s ease'
           }}
         >
-          RifkiDev
+          Rifki Dev
         </Link>
         <Group gap={24} visibleFrom="sm">
           {links.map((item) => (

@@ -22,7 +22,7 @@ export default function Footer() {
               transition: 'color 0.3s ease'
             }}
           >
-            © 2024 RifkiDev. All rights reserved.
+            © 2025 Rifki Dev. All rights reserved.
           </Text>
           <Text 
             size="sm"

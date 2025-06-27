@@ -1,50 +1,50 @@
-# portfolio Next.js
+# Portfolio Next.js
 
-Struktur folder:
+A modern portfolio website built with [Next.js](https://nextjs.org), featuring clean UI, responsive design, and modular code structure.
 
-- `pages/` — Halaman utama (index, about, projects, contact)
-- `components/` — Komponen UI reusable (Navbar, Footer, ProjectCard)
-- `layouts/` — Layout utama (MainLayout)
-- `styles/` — CSS modular per halaman/komponen
-- `public/images/` — Gambar statis (foto profil, proyek, dsb)
+Website portofolio modern menggunakan Next.js, dengan UI bersih, desain responsif, dan struktur kode modular.
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+## 📁 Folder Structure / Struktur Folder
 
-## Getting Started
+- `pages/` — Main pages (index, about, projects, contact, under-construction)
+- `components/` — Reusable UI components (Navbar, Footer, ProjectCard)
+- `layouts/` — Main layout (MainLayout)
+- `styles/` — CSS modules for each page/component
+- `public/images/` — Static images (profile photo, project images, etc)
 
-First, run the development server:
+## 🚀 Getting Started / Memulai Proyek
 
-```bash
-npm run dev
-# or
+1. Install dependencies / Install dependensi:
+   ```bash
+   npm install
+   # or
+yarn install
+   ```
+2. Run the development server / Jalankan server development:
+   ```bash
+   npm run dev
+   # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+   ```
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠️ Customization / Kustomisasi
+- Edit content in `pages/index.tsx`, `about.tsx`, `projects.tsx`, `contact.tsx`.
+- Add or update images in `public/images/`.
+- Modify styles in `styles/`.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Under Construction Page
+A dedicated page for maintenance or when a feature is not yet available. See `pages/under-construction.tsx`.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Halaman khusus untuk maintenance atau fitur yang belum tersedia. Lihat `pages/under-construction.tsx`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+## 📚 Learn More / Pelajari Lebih Lanjut
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Learn Next.js](https://nextjs.org/learn-pages-router)
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ☁️ Deploy
+Deploy easily on [Vercel](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme).
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+Made with ❤️ by Rifki Ramdani
