@@ -1,4 +1,4 @@
-import { Box, useComputedColorScheme } from '@mantine/core';
+import { Box, useMantineColorScheme } from '@mantine/core';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useEffect } from 'react';
@@ -8,8 +8,7 @@ interface MainLayoutProps {
 }
 
 export default function MainLayout({ children }: MainLayoutProps) {
-  const computedColorScheme = useComputedColorScheme('light');
-
+  const { colorScheme } = useMantineColorScheme();
   useEffect(() => {
     // Set initial theme based on localStorage
     const savedScheme = localStorage.getItem('mantine-color-scheme') as 'light' | 'dark';
@@ -17,7 +16,6 @@ export default function MainLayout({ children }: MainLayoutProps) {
       document.documentElement.setAttribute('data-mantine-color-scheme', savedScheme);
     }
   }, []);
-
   return (
     <Box 
       style={{ 

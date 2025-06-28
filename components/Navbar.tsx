@@ -1,4 +1,4 @@
-import { Container, Group, Burger, Paper, Transition, rem, ActionIcon, useComputedColorScheme, Stack } from '@mantine/core';
+import { Container, Group, Burger, Paper, Transition, rem, ActionIcon, useMantineColorScheme, Stack, Button } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -34,9 +34,11 @@ const MoonIcon = ({ size = 20, color = 'var(--text-secondary)' }: { size?: numbe
 export default function Navbar() {
   const [opened, { toggle, close }] = useDisclosure();
   const [colorScheme, setColorScheme] = useState<'light' | 'dark'>('light');
-  const computedColorScheme = useComputedColorScheme('light');
+  const { colorScheme: mantineColorScheme } = useMantineColorScheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const savedScheme = localStorage.getItem('mantine-color-scheme') as 'light' | 'dark';
     if (savedScheme) {
       setColorScheme(savedScheme);
@@ -62,6 +64,8 @@ export default function Navbar() {
       document.body.style.color = '#1a1a1a';
     }
   };
+
+  if (!mounted) return null;
 
   return (
     <Paper 
@@ -107,6 +111,18 @@ export default function Navbar() {
               {item.label}
             </Link>
           ))}
+          <Button
+            component="a"
+            href="/Rifki_Fullstack_CV.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            color="blue"
+            size="sm"
+            variant="outline"
+            style={{ fontWeight: 600 }}
+          >
+            Download CV
+          </Button>
           <ActionIcon
             onClick={toggleColorScheme}
             variant="default"
@@ -119,7 +135,7 @@ export default function Navbar() {
               transition: 'color 0.3s ease'
             }}
           >
-            {computedColorScheme === 'light' ? (
+            {mantineColorScheme === 'light' ? (
               <MoonIcon size={20} />
             ) : (
               <SunIcon size={20} />
@@ -139,7 +155,7 @@ export default function Navbar() {
               transition: 'color 0.3s ease'
             }}
           >
-            {computedColorScheme === 'light' ? (
+            {mantineColorScheme === 'light' ? (
               <MoonIcon size={20} />
             ) : (
               <SunIcon size={20} />
@@ -189,6 +205,20 @@ export default function Navbar() {
                   {item.label}
                 </Link>
               ))}
+              <Button
+                component="a"
+                href="/Rifki_Fullstack_CV.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                color="blue"
+                size="md"
+                variant="filled"
+                fullWidth
+                mt={12}
+                style={{ fontWeight: 700 }}
+              >
+                Download CV
+              </Button>
             </Stack>
           </Paper>
         )}

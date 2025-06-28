@@ -1,6 +1,5 @@
-import { Card, Text, Badge, Group, Stack, useComputedColorScheme } from '@mantine/core';
+import { Card, Text, Badge, Group, Stack, useMantineColorScheme } from '@mantine/core';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
 
 type Project = {
   title: string;
@@ -12,12 +11,8 @@ type Project = {
   details: string;
 };
 
-const [selected, setSelected] = useState<Project | null>(null);
-
-
 export default function ProjectCard({ title, description, technologies, image, link, details }: Project) {
-  const computedColorScheme = useComputedColorScheme('light');
-
+  const { colorScheme } = useMantineColorScheme();
   return (
     <motion.div
       whileHover={{ y: -5 }}

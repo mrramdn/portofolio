@@ -248,7 +248,7 @@ export default function Home() {
             {timeline.map((item, index) => {
               const isLeft = index % 2 === 0;
               return (
-                <Group key={item.year} align="flex-start" justify="space-between" style={{ position: 'relative', marginBottom: 48 }}>
+                <Group key={item.year + '-' + index} align="flex-start" justify="space-between" style={{ position: 'relative', marginBottom: 48 }}>
                   {isLeft && (
                     <Box style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
                       <motion.div

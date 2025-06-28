@@ -2,8 +2,11 @@ import { Container, Title, Text, Center, Box, Button, Paper, Stack } from '@mant
 import { IconTools } from '@tabler/icons-react';
 import MainLayout from '../layouts/MainLayout';
 import Link from 'next/link';
+import { useComputedColorScheme } from '@mantine/core';
 
-export default function UnderConstruction() {
+export default function Projects() {
+  const computedColorScheme = useComputedColorScheme('light');
+
   return (
     <MainLayout>
       <Box style={{ minHeight: '80vh',   background: 'linear-gradient(135deg, var(--bg-primary) 60%, var(--bg-secondary) 100%)'}}>

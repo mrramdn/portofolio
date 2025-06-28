@@ -1,23 +1,13 @@
 import "@/styles/globals.css";
-import { MantineProvider } from '@mantine/core';
-import { useLocalStorage } from '@mantine/hooks';
+import { MantineProvider, localStorageColorSchemeManager } from '@mantine/core';
 import type { AppProps } from "next/app";
 import '@mantine/core/styles.css';
 
+const colorSchemeManager = localStorageColorSchemeManager({ key: 'mantine-color-scheme' });
+
 export default function App({ Component, pageProps }: AppProps) {
-  const [colorScheme, setColorScheme] = useLocalStorage<"light" | "dark">({
-    key: 'mantine-color-scheme',
-    defaultValue: 'light',
-  });
-
-  const toggleColorScheme = (value?: "light" | "dark") => {
-    const newScheme = value || (colorScheme === 'dark' ? 'light' : 'dark');
-    setColorScheme(newScheme);
-  };
-
   return (
-    <MantineProvider 
-      defaultColorScheme="light"
+    <MantineProvider
       theme={{
         primaryColor: 'blue',
         fontFamily: 'Inter, Arial, sans-serif',
@@ -37,6 +27,8 @@ export default function App({ Component, pageProps }: AppProps) {
           ],
         },
       }}
+      colorSchemeManager={colorSchemeManager}
+      defaultColorScheme="auto"
     >
       <Component {...pageProps} />
     </MantineProvider>

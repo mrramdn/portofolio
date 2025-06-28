@@ -1,8 +1,7 @@
-import { Container, Text, Group, useComputedColorScheme } from '@mantine/core';
+import { Container, Text, Group, useMantineColorScheme } from '@mantine/core';
 
 export default function Footer() {
-  const computedColorScheme = useComputedColorScheme('light');
-
+  const { colorScheme } = useMantineColorScheme();
   return (
     <footer 
       style={{ 
@@ -22,7 +21,7 @@ export default function Footer() {
               transition: 'color 0.3s ease'
             }}
           >
-            © 2025 Rifki Dev. All rights reserved.
+            © 2024 Rifki Dev. All rights reserved.
           </Text>
           <Text 
             size="sm"
